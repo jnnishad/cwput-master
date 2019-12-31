@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-
+INSTANCE_ID=$(curl 169.254.169.254/1.0/meta-data/instance-id)
+EC2_AVAIL_ZONE=`curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone`
+EC2_REGION="`echo \"$EC2_AVAIL_ZONE\" | sed 's/[a-z]$//'`"
 CWPUT_NAMESPACE=${CWPUT_NAMESPACE:-"System/Linux"}
 CWPUT_CONFIG_DIR=${CWPUT_CONFIG_DIR:-"/etc/cwput/checks"}
 CWPUT_GROUP=${CWPUT_GROUP:-"$INSTANCE_ID"}

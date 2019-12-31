@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+
+set -e
+metric_name="PORT_PORTNUMBER"
+unit="Count"
+value=$(if [ `netstat -tunlp|grep LISTEN |grep -w ":PORTNUMBER" | wc -l` -gt 0 ] ;then echo "1"; else echo "0"; fi)
+echo "$metric_name;$unit;$value"
