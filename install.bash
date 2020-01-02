@@ -36,4 +36,8 @@ sed -i "s/URLNAME/$link/g" /etc/cwput/checks/url_"$temp"
 done
 
 
+grep -l '/bin/cwput' /var/spool/cron/crontabs/root
+if [ $? -ne 0 ]
+then
 echo "*/5 * * * * /bin/cwput"  >> /var/spool/cron/root
+fi
