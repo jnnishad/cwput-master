@@ -9,7 +9,7 @@ cp -r $dir/etc/checks /etc/cwput
 #cwput
 
 ports=$(cat Service_List|grep PORTS|awk -F '=' '{print$2}'|sed 's/,/ /g')
-apps=$(cat Service_List|grep SERVICE|awk -F '=' '{print$2}'|sed 's/,/ /g')
+#apps=$(cat Service_List|grep SERVICE|awk -F '=' '{print$2}'|sed 's/,/ /g')
 url=$(cat Service_List|grep URL|awk -F '=' '{print$2}'|sed 's/,/ /g')
 
 for num in ${ports[@]}
@@ -19,12 +19,12 @@ sed -i "s/PORTNUMBER/$num/g" /etc/cwput/checks/port_"$num"
 chmod ugo+x /etc/cwput/checks/port_"$num"
 done
 
-for toll in ${apps[@]}
-do
-cp service /etc/cwput/checks/$toll
-sed -i "s/SERVICENAME/$toll/g" /etc/cwput/checks/$toll
-chmod ugo+x /etc/cwput/checks/$toll
-done
+#for toll in ${apps[@]}
+#do
+#cp service /etc/cwput/checks/$toll
+#sed -i "s/SERVICENAME/$toll/g" /etc/cwput/checks/$toll
+#chmod ugo+x /etc/cwput/checks/$toll
+#done
 #echo -e "$ports - $apps"
 
 for link in ${url[@]}
