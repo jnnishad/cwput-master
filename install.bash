@@ -5,6 +5,7 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cp $dir/bin/cwput.bash /usr/bin/cwput
 cp $dir/etc/cwput.conf /etc/init
 mkdir /etc/cwput
+mkdir $dir/etc/checks
 cp -r $dir/etc/checks /etc/cwput
 #cwput
 
