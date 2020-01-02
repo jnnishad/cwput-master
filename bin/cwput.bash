@@ -5,7 +5,7 @@ EC2_REGION="`echo \"$EC2_AVAIL_ZONE\" | sed 's/[a-z]$//'`"
 CWPUT_NAMESPACE=${CWPUT_NAMESPACE:-"System/Linux"}
 CWPUT_CONFIG_DIR=${CWPUT_CONFIG_DIR:-"/etc/cwput/checks"}
 CWPUT_GROUP=${CWPUT_GROUP:-"$INSTANCE_ID"}
-CWPUT_DIM_ID=${CWPUT_DIM_ID:-"[ {\"Name\": \"InstanceId\", \"Value\": \"$INSTANCE_ID-$STACK_NAME-$EC2_REGION\"} ]"}
+CWPUT_DIM_ID=${CWPUT_DIM_ID:-"[ {\"Name\": \"InstanceId\", \"Value\": \"$INSTANCE_ID\"} ]"}
 CWPUT_DIM_GROUP=${CWPUT_DIM_GROUP:-"[ {\"Name\": \"AutoScalingGroupName\", \"Value\": \"$CWPUT_GROUP\"} ]"}
 
 if [ -z $INSTANCE_ID ]; then
