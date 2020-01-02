@@ -4,5 +4,5 @@
 set -e
 metric_name="PortPORTNUMBER"
 unit="Count"
-value=$(if [ `netstat -tunlp|grep LISTEN |grep -w ":PORTNUMBER" | wc -l` -gt 0 ] ;then echo "1"; else echo "0"; fi)
+value=$(if [ `netstat -tunlp|grep LISTEN |grep ":PORTNUMBER" | wc -l` -gt 0 ] ;then echo "1"; else echo "0"; fi)
 echo "$metric_name;$unit;$value"
