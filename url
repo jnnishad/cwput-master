@@ -4,6 +4,6 @@
 set -e
 metric_name="URLCheck-URLNAME"
 unit="Count"
-value=$(if [ `curl  -Is   http://URLNAME|egrep -w '200 OK' |wc -l| awk '{print $1}'` -gt 0 ] ;then echo "1"; else echo "0"; fi)
+value=$(if [ `curl  -Is   http://URLNAME|grep '200 OK' |wc -l| awk '{print $1}'` -gt 0 ] ;then echo "1"; else echo "0"; fi)
 echo "$metric_name;$unit;$value"
 
