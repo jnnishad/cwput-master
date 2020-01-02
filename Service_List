@@ -1,2 +1,3 @@
-PORTS,80,90,10
-SERVICE,sshd,java,service1,service2,service3,srevice4,service5
+PORTS=8080,443,80
+SERVICE=tomcat
+URL=www.google.co.in,www.flipkart.com

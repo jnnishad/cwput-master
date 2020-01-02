@@ -1,0 +1,9 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	worktree = /
+[remote "origin"]
+	url = https://github.com/jnnishad/cwput-master.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
