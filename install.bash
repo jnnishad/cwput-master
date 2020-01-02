@@ -20,13 +20,17 @@ sed -i "s/PORTNUMBER/$num/g" /etc/cwput/checks/port_"$num"
 chmod ugo+x /etc/cwput/checks/port_"$num"
 done
 
-#for toll in ${apps[@]}
-#do
-#cp service /etc/cwput/checks/$toll
-#sed -i "s/SERVICENAME/$toll/g" /etc/cwput/checks/$toll
+for toll in ${apps[@]}
+do
+appname=$(echo $toll|awk -F '/' '{print$NF}'|sed 's/\./_/g')
+cp service /etc/cwput/checks/$appname
+sed -i "s#SERVICENAME#"$toll"#g" /etc/cwput/checks/$appname
+
+#echo -e "$toll is here"
 #chmod ugo+x /etc/cwput/checks/$toll
-#done
+done
 #echo -e "$ports - $apps"
+
 
 for link in ${url[@]}
 do
