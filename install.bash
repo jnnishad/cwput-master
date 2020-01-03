@@ -35,6 +35,7 @@ url=$(cat Service_List|grep URL|awk -F '=' '{print$2}'|sed 's/,/ /g')
     temp=$(echo $link|sed 's/\./_/g')
     cp url /etc/cwput/checks/url_"$temp"
     sed -i "s/URLNAME/$link/g" /etc/cwput/checks/url_"$temp"
+    chmod ugo+x /etc/cwput/checks/url_"$temp"
     done
 
 grep -l '/bin/cwput' /var/spool/cron/crontabs/root
