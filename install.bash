@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-yum install -y git vim
+yum install -y vim
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 cp $dir/bin/cwput.bash /usr/bin/cwput
