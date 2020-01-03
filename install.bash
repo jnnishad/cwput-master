@@ -25,7 +25,7 @@ url=$(cat Service_List|grep URL|awk -F '=' '{print$2}'|sed 's/,/ /g')
     name=$(echo $toll|awk -F ':' '{print$1}')
     jar=$(echo $toll|awk -F ':' '{print$2}')
     cp service /etc/cwput/checks/$name
-    sed -i 's/METRICNAME/$name/g' /etc/cwput/checks/$name
+    sed -i "s/METRICNAME/$name/g" /etc/cwput/checks/$name
     sed -i "s#SERVICENAME#"$jar"#g" /etc/cwput/checks/$name
     chmod ugo+x /etc/cwput/checks/$name
     done
@@ -38,7 +38,7 @@ url=$(cat Service_List|grep URL|awk -F '=' '{print$2}'|sed 's/,/ /g')
     chmod ugo+x /etc/cwput/checks/url_"$temp"
     done
 
-grep -l '/bin/cwput' /var/spool/cron/crontabs/root
+grep -l '/bin/cwput' /var/spool/cron/root
   if [ $? -ne 0 ]
     then
     echo "*/5 * * * * /bin/cwput"  >> /var/spool/cron/root
