@@ -22,9 +22,10 @@ done
 
 for toll in ${apps[@]}
 do
-appname=$(echo $toll|awk -F '/' '{print$NF}'|sed 's/\./_/g')
-cp service /etc/cwput/checks/$appname
-sed -i "s#SERVICENAME#"$toll"#g" /etc/cwput/checks/$appname
+name=$(echo $toll|awk -F ':' '{print$1}')
+jar=$(echo $toll|awk -F ':' '{print$2}')
+cp service /etc/cwput/checks/$name
+sed -i "s#SERVICENAME#"$jar"#g" /etc/cwput/checks/$name
 
 #echo -e "$toll is here"
 #chmod ugo+x /etc/cwput/checks/$toll
