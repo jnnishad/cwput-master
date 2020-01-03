@@ -2,7 +2,7 @@
 
 
 set -e
-metric_name="SERVICENAME"
+metric_name="METRICNAME"
 unit="Count"
 value=$(if [ `ps -elf |grep -v grep| grep "SERVICENAME"| wc -l | awk '{print $1}'` -gt 0 ] ;then echo "1"; else echo "0"; fi)
 echo "$metric_name;$unit;$value"
